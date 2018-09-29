@@ -1,0 +1,39 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    <li><a asp-action="Add">Dodaj rolę</a></li>
+    <li><a asp-action="Remove">Usuń rolę</a></li>
+    <li><a asp-action="AddToRole">Dodaj użytkownika do roli</a></li>
+</ul>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Nazwa roli aplikacji
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item
+            </td>
+			
+            <td>
+                <a asp-action="Edit" asp-route-roleName="@item">Edytuj</a> |
+                <a asp-action="Remove" asp-route-roleName="@item">Usuń</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

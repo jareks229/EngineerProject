@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProjektInzynier.Models.IndustryModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+<div align="center"><h2>Lista dostępnych branż budowlanych</h2></div>
+
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Dodaj branżę do bazy</a>
+    </p>
+}
+
+@foreach (var item in Model)
+{
+
+    <div align="center">
+        <div align="center" class="input-group-append">
+            <a asp-action="Index" asp-controller="Product" asp-route-id="@item.ID"><i class="fa fa-tint"></i><button type="button" class="btn btn-primary btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span> @item.IndustryName</button></a>
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <a asp-action="Edit" asp-route-id="@item.ID" class="dropdown-item">Edytuj</a>
+                <a asp-action="Delete" asp-route-id="@item.ID" class="dropdown-item">Usuń</a>
+        
+            </div>
+        </div>
+    </div>
+ }
+
+

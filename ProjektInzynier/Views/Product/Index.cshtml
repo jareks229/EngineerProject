@@ -1,0 +1,115 @@
+﻿@using ProjektInzynier.Helpers
+@model IEnumerable<ProjektInzynier.Models.ProductModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<div align="center">
+    <a asp-action="Create"><button type="button" class="btn btn-success">Dodaj produkt do bazy</button> </a>
+
+    </div>
+<div class="row justify-content-center">
+<div class="col-12 col-md-10 col-lg-8">
+    <form asp-action="Index" asp-controller="Product" method="get">
+        <div class="card-body row no-gutters align-items-center">
+            <div class="col-auto">
+                <i class="fas fa-search h4 text-body"></i>
+            </div>
+            <!--end of col-->
+            <div class="col">
+                <input type="text" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Wyszukaj po nazwach producentów" name="producentName" value="@ViewBag.producentName">
+                <input type="hidden" name="page" value="1" />
+            </div>
+            <!--end of col-->
+            <div class="col-auto">
+                <button class="btn btn-lg btn-success" type="submit">Wyszukaj</button>
+            </div>
+            <!--end of col-->
+        </div>
+        </form>
+
+</div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechnicalParameters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Localization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProducentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProducentAdress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TechnicalParameters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Localization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProducentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProducentAdress)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                }
+
+                @if (User.IsInRole("Engineer"))
+                {
+                    <form id="@item." asp-action="AddToCart" asp-controller="Cart" method="post">
+                        <input type="hidden" asp-for="@item.ID" />
+                        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+                        <span class="card-text p-1">
+                            @item.ProductName
+                            <button type="submit" class="btn-success btn-sm pull-right" style="float: right">
+                                Dodaj do koszyka
+                            </button>
+                        </span>
+                    </form>
+                }
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                }
+                
+            </td>
+        </tr>
+    }
+    </tbody>
+    <tr>
+        <td colspan="8" class="text-center">
+            <div class="btn-group" role="group" aria-label="Strony">
+                @for (var i = 1; i <= ViewBag.Pages; i++)
+                {
+                    <a href="?page=@i" class="btn @(i == (int) ViewBag.Page ? "btn-primary" : "btn-default")">@i</a>
+                }
+            </div>
+        </td>
+    </tr>
+</table>

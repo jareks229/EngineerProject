@@ -1,0 +1,41 @@
+﻿@using ProjektInzynier.Models
+@model CartViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Wybrane materiały do dokuemntacji</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Opcje</th>
+        <th>Ilość</th>
+        <th>Nazwa produktu</th>
+        <th>Cena</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var line in Model.Cart.Lines)
+    {
+        <tr>
+            <td><a asp-controller="cart" asp-action="RemoveFromCart" asp-route-id="@line.Product.ID">Usuń z dokumentacji</a></td>
+            <td>@line.Quantity</td>
+            <td>@line.Product.ProductName</td>
+            <td>@line.Product.Price.ToString("c")</td>
+        
+        </tr>
+    }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Suma:</td>
+            <td class="text-right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+<br>
+<a asp-controller="product" asp-action="index">Kontynuuj wybieranie produktów do dokumentacji</a>
+

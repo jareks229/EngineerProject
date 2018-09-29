@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Witaj na stronie projektu inżynier !</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="css/full.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" asp-action="Index" asp-controller="Home">Projekt Inżynier !</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-action="Index" asp-controller="Home">
+                        Strona Główna
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    @if (User.IsInRole("Producent"))
+                    {
+
+                        <a class="nav-link" asp-action="Index" asp-controller="Industry">Dodaj produkt do bazy</a>
+
+                    }
+
+                    @if (User.IsInRole("Engineer"))
+                    {
+
+                        <a class="nav-link" asp-action="Index" asp-controller="Industry">Przeglądaj bazę</a>
+
+                    }
+
+                    </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Register" asp-controller="Account">Rejestracja</a>
+                </li>
+                <li class="nav-item">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <a class="nav-link" asp-action="LogOut" asp-controller="Account">Wyloguj użytkownika @User.Identity.Name</a>
+
+                    }
+                    else
+                    {
+                        <a class="nav-link" asp-action="LogIn" asp-controller="Account">Logowanie</a>
+                    }
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+
+    <br/>
+
+<div>
+    @RenderBody()
+</div>
+</body>
+</html>

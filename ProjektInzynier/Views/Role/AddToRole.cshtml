@@ -1,0 +1,39 @@
+﻿@model ProjektInzynier.Models.AddToRoleViewModel
+
+@{
+    ViewData["Title"] = "AddToRole";
+}
+
+<h2>AddToRole</h2>
+
+<h4>AddToRoleViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddToRole">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SelectedIdentityRoleId" class="control-label"></label>
+
+                @Html.DropDownListFor(q => q.SelectedIdentityRoleId, new SelectList(Model.IdentityRolesDictionary, "Key", "Value"))
+
+                <span asp-validation-for="SelectedIdentityRoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedIdentityUserId" class="control-label"></label>
+
+                @Html.DropDownListFor(q => q.SelectedIdentityUserId, new SelectList(Model.IdentityUsersDictionary, "Key", "Value"))
+
+                <span asp-validation-for="SelectedIdentityUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anuluj</a>
+</div>
+
