@@ -12,6 +12,7 @@ namespace ProjektInzynier
     {
         public DbSet<IndustryModel> Industries { get; set; }
         public DbSet<ProductModel> Products { get; set; }
+        public DbSet<OrderModel> Orders { get; set; }
         //do connection stringa w startup
         public EFCContext(DbContextOptions opt) : base(opt)
         {
