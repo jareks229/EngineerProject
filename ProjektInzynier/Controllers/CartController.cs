@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjektInzynier.Helpers;
 using ProjektInzynier.Interfaces;
@@ -12,16 +13,17 @@ namespace ProjektInzynier.Controllers
     public class CartController : Controller
     {
         private readonly EFCContext _context;
-
         private IProductRepository repository;
         private CartModel cart;
 
-        public CartController(EFCContext context, IProductRepository repo, CartModel cartService)
+                public CartController(EFCContext context, IProductRepository repo, CartModel cartService)
         {
             repository = repo;
             cart = cartService;
             _context = context;
+                        
         }
+        
 
         public ViewResult Index(string returnUrl)
         {

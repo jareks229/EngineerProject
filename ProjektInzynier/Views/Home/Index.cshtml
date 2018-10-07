@@ -1,98 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Authorization.Infrastructure
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Witaj na stronie projektu inżynier</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/full.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-<!-- Nawigacja -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">Projekt Inżynier !</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        Strona Główna
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    @if (User.IsInRole("Producent"))
-                    {
-
-                        <a class="nav-link" asp-action="Index" asp-controller="Industry">Dodaj produkt do bazy</a>
-
-                    }
-
-                    @if (User.IsInRole("Engineer"))
-                    {
-
-                        <a class="nav-link" asp-action="Index" asp-controller="Industry">Przeglądaj bazę</a>
-
-                    }
-                    @if (User.Identity.IsAuthenticated)
-                    {
-
-                        <a class="nav-link" asp-action="Index" asp-controller="Role">Menadżer ról aplikacji</a>
-
-                    }
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="Register" asp-controller="Account">Rejestracja</a>
-                </li>
-                <li class="nav-item">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-
-                        <a class="nav-link" asp-action="LogOut" asp-controller="Account">Wyloguj użytkownika @User.Identity.Name</a>
-
-
-                    }
-                    else
-                    {
-                        <a class="nav-link" asp-action="LogIn" asp-controller="Account">Logowanie</a>
-                    }
-
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
-
 <div align="center">
     <div class="jumbotron">
-        <h1 class="display-4">Witaj w programie do wykonywania dokumentacji budowlanej</h1>
-        <h3>Program BudSoft (nazwa kodowa Projekt Inżynier) jest programem pomocnicznym w codziennej pracy inżyniera budowlanego, kierownika lub właściciela firmy budowlanej. </h3>
-        <h3>Program pozwala automatycznie (bazując) na wyborach użytkownika wygenerować wniosek o akceptację materiałów użytych podczas budowy.</h3>
-        <h3>Planowana dodatkowa funkcjonalność:</h3>
-        <p>- Generowanie faktur za użyte materiały</p>
-        <p>- Dodanie indywidualnego profilu inżyniera</p>
-        <p>- I wiele innych funkcjonalności już wkrótce !</p>
-        <p><a id="button1" class="btn btn-primary btn-lg" href="#" role="button">O wersji</a></p>
-        <p><a id="button2" class="btn btn-primary btn-lg" href="#" role="button">O autorach</a></p>
+        <h1 class="display-4 animated zoomIn">Witaj w programie do wykonywania dokumentacji budowlanej</h1>
+        <h3 class="animated zoomIn">Program BudSoft (nazwa kodowa Projekt Inżynier) jest programem pomocnicznym w codziennej pracy inżyniera budowlanego, kierownika lub właściciela firmy budowlanej. </h3>
+        <h3 class="animated zoomIn">Program pozwala automatycznie (bazując) na wyborach użytkownika wygenerować wniosek o akceptację materiałów użytych podczas budowy.</h3>
+        <h3 class="animated zoomIn">Planowana dodatkowa funkcjonalność:</h3>
+        <p class="animated pulse">- Generowanie faktur za użyte materiały</p>
+        <p class="animated pulse">- Dodanie indywidualnego profilu inżyniera</p>
+        <p class="animated pulse">- I wiele innych funkcjonalności już wkrótce !</p>
+        <p><a id="button1" class="btn btn-primary btn-lg" href="#" role="button"><i class="fas fa-info"></i> Aktualna wersja</a></p>
+        <p><a id="button2" class="btn btn-primary btn-lg" href="#" role="button"><i class="far fa-question-circle"></i>  Autorzy</a></p>
     </div>
 </div>
 
@@ -108,13 +26,11 @@
         });
 
         $("#button1").click(function() {
-            alert("Aktualna wersja 0.0.2");
+            alert("Aktualna wersja 0.0.3");
         });
     });
 </script>
 
 
 
-</body>
 
-</html>

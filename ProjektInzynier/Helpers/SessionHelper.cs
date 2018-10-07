@@ -9,7 +9,7 @@ namespace ProjektInzynier.Helpers
 {
     public static class SessionHelper
     {
-        public static void SetObjectAsJson(this ISession session, string key, object value)
+        public static void SetJson(this ISession session, string key, object value)
         {
             session.SetString(key, JsonConvert.SerializeObject(value));
         }
