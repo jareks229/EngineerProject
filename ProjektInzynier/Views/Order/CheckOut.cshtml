@@ -1,44 +1,125 @@
 ﻿@model ProjektInzynier.Models.OrderModel
+    <br />
+    <br />
+    <div class="container">
 
 
-<br/>
-<br/>
-<div align="center">
-    <h2><i class="fas fa-check-square"></i> Finalizowanie dokumentacji</h2>
+        <form class="form-horizontal" role="form" method="POST" asp-action="Create" asp-controller="Excel">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h2 class="animated bounceIn"><i class="fas fa-check-square"></i> Finalizowanie dokumentacji</h2>
 
-    <p> Proszę podać dane firmy aby sfinalizować dokumentację</p>
+                    <p class="animated bounceIn"> Proszę podać dane firmy aby sfinalizować dokumentację</p>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label asp-for="Name">Imię i nazwisko</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fas fa-user"></i></div>
+                            <input asp-for="Name" type="text" name="Name" class="form-control" id="name"
+                                   placeholder="Imię i nazwisko inżyniera" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                        <span asp-validation-for="Name" class="text-danger align-middle">
+                            Proszę podać imię i nazwisko !
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label asp-for="Construction" for="construction">Budowa</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fas fa-building"></i></div>
+                            <input asp-for="Construction" class="form-control" id="password"
+                                   placeholder="Nazwa i adres budowy" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label asp-for="Investor" for="investor">Inwestor</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fas fa-hand-holding-usd"></i></div>
+                            <input asp-for="Investor" class="form-control" id="password"
+                                   placeholder="Nazwa inwestora" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label asp-for="Supervision" for="supervision">Nadzór</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fas fa-eye"></i></div>
+                            <input asp-for="Supervision" class="form-control" id="password"
+                                   placeholder="Nadzór budowlany" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label asp-for="Contractor" for="contractor">Wykonawca</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fas fa-screwdriver"></i></div>
+                            <input asp-for="Contractor" class="form-control" id="password"
+                                   placeholder="Wykonawca inwestycji" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label asp-for="IndustryEngineer" for="contractor">Projektant branżowy</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <input asp-for="IndustryEngineer" class="form-control" id="password"
+                                   placeholder="Projektant branżowy" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                        <span asp-validation-for="Construction" class="text-danger align-middle">
+                            <i class="fa fa-close"> Proszę wpisać dane budowy !</i>
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-    <form asp-action="Create" asp-controller="Excel" method="post">
-        <h3>Inżynier</h3>
-        <div class="form-group">
-            <label><i class="fas fa-file-signature"></i> Imię i Nazwisko</label><input asp-for="Name" class="form-control" />
-        </div>
-        <h3>Adres firmy:</h3>
-        <div class="form-group">
-            <label>Wiersz 1:</label><input asp-for="Line1" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Wiersz 2:</label><input asp-for="Line2" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Wiersz 3:</label><input asp-for="Line3" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Miasto:</label><input asp-for="City" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Województwo</label><input asp-for="State" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Kod Pocztowy:</label><input asp-for="ZipCode" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Kraj</label><input asp-for="Country" class="form-control" />
-        </div>
-        <div class="text-center">
-            <button type="submit" class="btn btn-success"><i class="far fa-file"></i> Wykonaj dokumentację</button>
-        </div>
-
-    </form>
-</div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-success"><i class="fas fa-file-excel"></i> Wykonaj dokumentację (Format Excel)</button>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
 

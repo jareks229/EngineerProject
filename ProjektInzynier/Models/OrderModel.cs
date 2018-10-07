@@ -17,21 +17,21 @@ namespace ProjektInzynier.Models
         [Required(ErrorMessage = "Proszę podać imię i nazwisko")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać pierwszy wiersz adresu firmy")]
-        public string Line1 { get; set; }
-        public string Line2 { get; set; }
-        public string Line3 { get; set; }
+        [Required(ErrorMessage = "Proszę podać budowę !")]
+        public string Construction { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać miasto")]
-        public string City { get; set; }
+        [Required(ErrorMessage = "Proszę podać nazwę inwestora !")]
+        public string Investor { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać województwo")]
-        public string State { get; set; }
+        [Required(ErrorMessage = "Proszę podać nadzór")]
+        public string Supervision { get; set; }
 
-        public string ZipCode { get; set; }
+        [Required(ErrorMessage = "Proszę podać wykonawcę")]
+        public string Contractor { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać kraj")]
-        public string Country { get; set; }
+        [Required(ErrorMessage = "Proszę podać projekanta branżowego")]
+        public string IndustryEngineer { get; set; }
+               
         
     }
     
