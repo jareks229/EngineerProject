@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
     <ConnectionStrings>
-        <Default>Data Source=DESKTOP-DAKBRDM\SQLEXPRESS;Initial Catalog=RegisterIng;Integrated Security=True</Default>
+        <Default>Data Source=DESKTOP-OO9IBF3\SQLEXPRESS;Initial Catalog=RegisterIng;Integrated Security=True</Default>
     </ConnectionStrings>
 </root>

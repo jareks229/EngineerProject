@@ -9,12 +9,18 @@
 <br />
 
 <div align="center">
+<<<<<<< HEAD
     @if (User.IsInRole("Producent"))
     {
         <a asp-action="Create"><button type="button" class="btn btn-success"><i class="fas fa-plus"></i> Dodaj produkt do bazy</button> </a>
     }
     
 </div>
+=======
+    <a asp-action="Create"><button type="button" class="btn btn-success"><i class="fas fa-plus"></i> Dodaj produkt do bazy</button> </a>
+
+    </div>
+>>>>>>> 3aa6782e871f53285c35661fd74982cabeafb7d2
 <div class="row justify-content-center">
 <div class="col-12 col-md-10 col-lg-8">
     <form asp-action="Index" asp-controller="Product" method="get">
@@ -38,7 +44,11 @@
 </div>
 </div>
 
+<<<<<<< HEAD
 <table class="table table-bordered table-striped" id="myTable">
+=======
+<table class="table table-bordered table-striped">
+>>>>>>> 3aa6782e871f53285c35661fd74982cabeafb7d2
     <thead>
         <tr>
             <th>
@@ -87,11 +97,19 @@
                 {
                     <form id="ID" asp-action="AddToCart" asp-controller="Cart" method="post">
                         <input type="hidden" name="id" value="@item.ID" />
+<<<<<<< HEAD
                         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
                         <button type="submit" class="btn-success btn-sm pull-right" style="float: right">
                             <i class="fas fa-cart-plus"></i> Dodaj do koszyka
                         </button>
 
+=======
+                        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+                                <button type="submit" class="btn-success btn-sm pull-right" style="float: right">
+                                <i class="fas fa-cart-plus"></i> Dodaj do koszyka
+                            </button>
+                        
+>>>>>>> 3aa6782e871f53285c35661fd74982cabeafb7d2
                     </form>
                 }
 
