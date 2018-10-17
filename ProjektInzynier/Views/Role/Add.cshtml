@@ -3,25 +3,41 @@
     ViewData["Title"] = "Add";
 }
 
-<h2>Dodaj rolę do aplikacji</h2>
+<br/>
+<br/>
 
-<hr />
+<div class="container">
+
+
+<form class="form-horizontal" role="form" method="POST" asp-action="Add" asp-controller="Role">
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Add">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">Nazwa roli</label>
-                <input name="RoleName" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Dodaj" class="btn btn-default" />
-            </div>
-        </form>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2 class="animated bounceIn"><i class="fas fa-plus-circle"></i> Dodawanie roli do aplikacji</h2>
+
+        <p class="animated bounceIn"> Proszę podać nazwę roli</p>
+        <hr>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="form-group has-danger">
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                <div class="input-group-addon" style="width: 2.6rem"><i class="fas fa-check"></i> </div>
+                <input name="RoleName" class="form-control" placeholder="Podaj nazwę" />
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-success"><i class="fas fa-plus-circle"></i> Dodaj rolę do aplikacji</button>
+            <a asp-controller="Role" asp-action="Index"><button type="button" class="btn btn-secondary"><i class="fa fa-backward"></i> Wróć do listy opcji</button></a>
 
-<div>
-    <a asp-action="Index">Anuluj</a>
+        </div>
+    </div>
+</form>
 </div>
 

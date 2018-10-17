@@ -1,19 +1,21 @@
 ﻿@model ProjektInzynier.Models.ProductModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
 <br/>
 <br/>
+<br/>
+
 <div class="container">
 
 
-    <form class="form-horizontal" role="form" method="POST" asp-action="Create" asp-controller="Product">
+    <form class="form-horizontal" role="form" method="POST" asp-action="Edit" asp-controller="Product">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h2 class="animated bounceIn"><i class="fas fa-plus-circle"></i> Dodawanie produktu do bazy</h2>
+                <h2 class="animated bounceIn"><i class="fas fa-edit"></i> Edycja produktu w bazie</h2>
 
                 <p class="animated bounceIn"> Proszę podać dane produktu</p>
                 <hr>
@@ -89,11 +91,11 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <button type="submit" class="btn btn-success"><i class="fas fa-plus-circle"></i> Dodaj produkt do bazy</button>
+                <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i> Zapisz zmiany w bazie</button>
                 <a asp-controller="Product" asp-action="Index"><button type="button" class="btn btn-secondary"><i class="fa fa-backward"></i> Wróć do listy produktów</button></a>
 
             </div>

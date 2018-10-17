@@ -102,9 +102,73 @@ namespace ProjektInzynier.Controllers
         }
 
 
+
+
         private bool ProductModelExists(int id)
         {
             return _context.Products.Any(e => e.ID == id);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var productModel = await _context.Products
+                .SingleOrDefaultAsync(m => m.ID == id);
+
+            if (productModel == null)
+            {
+                return NotFound();
+            }
+            return View(productModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ProductModel productModel)
+        {
+            if (id != productModel.ID)
+            {
+                return NotFound();
+            }
+
+            var productDb = await _context.Products
+                .SingleOrDefaultAsync(m => m.ID == id);
+
+            productDb.ProductName = productModel.ProductName;
+            
+            productDb.Localization = productModel.Localization;
+            productDb.Price = productModel.Price;
+            productDb.ProducentAdress = productModel.ProducentAdress;
+
+            productDb.ProducentName = productModel.ProducentName;
+            productDb.TechnicalParameters = productModel.TechnicalParameters;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(productDb);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProductModelExists(productDb.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(productModel);
         }
     }
 }

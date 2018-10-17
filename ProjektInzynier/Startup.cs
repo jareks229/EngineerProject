@@ -22,12 +22,12 @@ namespace ProjektInzynier
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<EFCContext>();
+            services.AddHttpContextAccessor();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
             services.AddTransient<IProductRepository, EFProductRepository>();
-            services.AddScoped<CartModel>(sp => SessionCart.GetCart(sp));
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<CartModel, SessionCart>();
             var connectionString = Configuration["ConnectionStrings:Default"];
             services.AddDbContext<EFCContext>(opt => opt.UseSqlServer(connectionString),
                 ServiceLifetime.Transient);

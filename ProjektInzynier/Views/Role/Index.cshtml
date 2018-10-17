@@ -4,13 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<br/>
+<br/>
 
-<ul>
-    <li><a asp-action="Add">Dodaj rolę</a></li>
-    <li><a asp-action="Remove">Usuń rolę</a></li>
-    <li><a asp-action="AddToRole">Dodaj użytkownika do roli</a></li>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2 class="animated bounceIn"><i class="fas fa-user-circle"></i> Menadżer Ról Aplikacji</h2>
+
+            <p class="animated bounceIn"><i class="fas fa-filter"></i> Dostępne opcje</p>
+            <hr>
+            <ul>
+                <li><a asp-action="Add"><i class="fas fa-plus"></i> Dodaj rolę</a></li>
+                <li><a asp-action="Remove"><i class="fas fa-user-minus"></i> Usuń rolę</a></li>
+                <li><a asp-action="AddToRole"><i class="fas fa-user-plus"></i> Dodaj użytkownika do roli</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <table class="table">
     <thead>

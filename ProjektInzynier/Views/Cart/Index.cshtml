@@ -5,7 +5,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Wybrane materiały do dokuemntacji</h2>
+<br />
+<br />
+<br />
+<br />
+<div align="center">
+    <h2>Wybrane materiały do dokumentacji</h2>
+</div>
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -37,6 +43,7 @@
     </tfoot>
 </table>
 <br>
-<a asp-controller="product" asp-action="index">Kontynuuj wybieranie produktów do dokumentacji</a>
-<a class="btn btn-primary" asp-action="CheckOut" asp-controller="Order">Wykonaj dokumentację</a>
-
+<div align="center">
+    <a class="btn btn-secondary" asp-controller="product" asp-action="index"><i class="fas fa-arrow-up"></i> Kontynuuj wybieranie produktów do dokumentacji</a>
+    <a class="btn btn-primary" asp-action="CheckOut" asp-controller="Order"><i class="far fa-file"></i> Wykonaj dokumentację</a>
+</div>

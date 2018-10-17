@@ -7,7 +7,7 @@ namespace ProjektInzynier.Models
 {
     public class CartModel
     {
-        private List<CartLine> lineCollection = new List<CartLine>();
+        protected List<CartLine> lineCollection = new List<CartLine>();
 
         public virtual void AddItem(ProductModel product, int quantity)
         {

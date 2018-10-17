@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="16.3.0.21" />
   </ItemGroup>
 
   <ItemGroup>
