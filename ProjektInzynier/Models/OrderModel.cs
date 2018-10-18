@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ProjektInzynier.Models
 {
+    //użyłem tutaj atrybuty BindNever uniemożliwiającego podanie użytkownikowi w żądaniu HTTP wartności dla oznaczonych właściwości
     public class OrderModel
     {
         [BindNever]

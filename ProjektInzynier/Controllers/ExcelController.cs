@@ -15,6 +15,7 @@ using ProjektInzynier.Helpers;
 
 namespace ProjektInzynier.Controllers
 {
+    //kontroler do generowania excela
     public class ExcelController : Controller
     {
         private IHttpContextAccessor _accessor;
@@ -75,15 +76,18 @@ namespace ProjektInzynier.Controllers
             sheet.Range["B20:H20"].Merge(true);
             sheet.Range["B20"].Text = "Sanitarna";
             sheet.Range["B20"].HorizontalAlignment = ExcelHAlign.HAlignCenter;
+            sheet.Range["A20:H20"].BorderAround();
 
             sheet.Range["A22"].Text = "Nazwa i parametry techniczne materiału:";
             sheet.Range["A22"].WrapText = true;
-            
+            sheet.Range["A22:H22"].BorderAround();
+
             sheet.Range["B22:H22"].Merge(true);
             sheet.Range["B22"].WrapText = true;
             sheet.Range["B22"].HorizontalAlignment = ExcelHAlign.HAlignCenter;
             sheet.Range["B22"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
             sheet.Range["B22"].CellStyle.Font.Bold = true;
+            sheet.Range["B22:H22"].BorderAround();
 
             foreach (var i in list)
             {
@@ -95,23 +99,27 @@ namespace ProjektInzynier.Controllers
             sheet.Range["B24:H24"].Merge(true);
             sheet.Range["B24"].WrapText = true;
             sheet.Range["B24"].HorizontalAlignment = ExcelHAlign.HAlignCenter;
+            sheet.Range["B24"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
             sheet.Range["B24"].CellStyle.Font.Bold = true;
             foreach (var i in list)
             {
                 sheet.Range["B24"].Text = i.Product.Localization;
             }
+            sheet.Range["A24:H24"].BorderAround();
 
             sheet.Range["A26"].Text = "Nazwa i adres producenta: ";
             sheet.Range["A26"].WrapText = true;
             sheet.Range["B26:H26"].Merge(true);
             sheet.Range["B26"].WrapText = true;
             sheet.Range["B26"].HorizontalAlignment = ExcelHAlign.HAlignCenter;
+            sheet.Range["B26"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
             sheet.Range["B26"].CellStyle.Font.Bold = true;
 
             foreach (var i in list)
             {
                 sheet.Range["B26"].Text = i.Product.ProducentAdress;
             }
+            sheet.Range["A26:H26"].BorderAround();
 
             sheet.Range["D43"].Text = "Zgłaszający - Generalny Wykonawca";
             sheet.Range["D43"].CellStyle.Font.Bold = true;
@@ -125,6 +133,12 @@ namespace ProjektInzynier.Controllers
             sheet.Range["F46"].Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             sheet.Range["H47"].Text = "Podpis";
+            
+            sheet.Range["D46"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed;
+            sheet.Range["F46"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed;
+            sheet.Range["H46"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed;
+
+            sheet.Range["A43:H47"].BorderAround();
 
 
             string ContentType = null;
@@ -132,7 +146,7 @@ namespace ProjektInzynier.Controllers
 
             workbook.Version = ExcelVersion.Excel2013;
             ContentType = "Application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            fileName = "Wniosek.xlsx";
+            fileName = $"Wniosek o akceptacje materialu {orderModel.Name}.xlsx";
 
             MemoryStream ms = new MemoryStream();
             workbook.SaveAs(ms);

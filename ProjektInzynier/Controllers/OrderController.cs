@@ -7,9 +7,9 @@ using ProjektInzynier.Models;
 
 namespace ProjektInzynier.Controllers
 {
+    //kontroler do kończenia "zamówień" 
     public class OrderController : Controller
     {
-        //Dodaj widok !
         public ViewResult CheckOut() => View(new OrderModel());
     }
 }

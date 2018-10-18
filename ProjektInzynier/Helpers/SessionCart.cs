@@ -9,6 +9,7 @@ using ProjektInzynier.Models;
 
 namespace ProjektInzynier.Helpers
 {
+    //do sesji
     public class SessionCart : CartModel
     {
         private IHttpContextAccessor _accessor;

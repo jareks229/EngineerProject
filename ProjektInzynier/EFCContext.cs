@@ -8,6 +8,7 @@ using ProjektInzynier.Models;
 
 namespace ProjektInzynier
 {
+    //klasa kontekstu Entity
     public class EFCContext : IdentityDbContext
     {
         public DbSet<IndustryModel> Industries { get; set; }

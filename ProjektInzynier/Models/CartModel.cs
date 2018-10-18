@@ -7,6 +7,7 @@ namespace ProjektInzynier.Models
 {
     public class CartModel
     {
+        //model koszyka 
         protected List<CartLine> lineCollection = new List<CartLine>();
 
         public virtual void AddItem(ProductModel product, int quantity)
@@ -26,7 +27,7 @@ namespace ProjektInzynier.Models
                 line.Quantity += quantity;
             }
         }
-
+        //wirtualne metody do przesłonięcia w kontrolerze
         public virtual void RemoveLine(ProductModel product) =>
             lineCollection.RemoveAll(l => l.Product.ID == product.ID);
 
@@ -37,6 +38,7 @@ namespace ProjektInzynier.Models
         public virtual IEnumerable<CartLine> Lines => lineCollection;
     }
 
+    //klasa kart line w celu dodania obiektów tej klasy do listy
     public class CartLine
     {
         public int CartLineID { get; set; }

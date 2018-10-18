@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProjektInzynier.Helpers;
-using ProjektInzynier.Interfaces;
 using ProjektInzynier.Models;
 
 namespace ProjektInzynier
@@ -26,7 +25,6 @@ namespace ProjektInzynier
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
-            services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddScoped<CartModel, SessionCart>();
             var connectionString = Configuration["ConnectionStrings:Default"];
             services.AddDbContext<EFCContext>(opt => opt.UseSqlServer(connectionString),

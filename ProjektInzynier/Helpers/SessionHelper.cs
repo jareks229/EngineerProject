@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 
 namespace ProjektInzynier.Helpers
 {
+    //statyczna klasa sesji z metodami dodawania obiektów do sesji i usuwania z niej
     public static class SessionHelper
     {
         public static void SetJson(this ISession session, string key, object value)

@@ -5,20 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjektInzynier.Helpers;
-using ProjektInzynier.Interfaces;
 using ProjektInzynier.Models;
 
 namespace ProjektInzynier.Controllers
 {
+    //kontroler koszyka
     public class CartController : Controller
     {
         private readonly EFCContext _context;
-        private IProductRepository repository;
+        
         private CartModel cart;
-
-                public CartController(EFCContext context, IProductRepository repo, CartModel cartService)
+        //konstruktor do wstrzykiwania zależności
+        public CartController(EFCContext context, CartModel cartService)
         {
-            repository = repo;
             cart = cartService;
             _context = context;
                         

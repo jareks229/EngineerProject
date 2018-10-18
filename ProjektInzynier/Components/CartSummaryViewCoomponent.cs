@@ -7,6 +7,7 @@ using ProjektInzynier.Models;
 
 namespace ProjektInzynier.Components
 {
+    //eksperyment z viewkomponentem w celu wyświetlania na stronie głównej ile materiałów jest już w koszyku.
     public class CartSummaryViewComponent : ViewComponent
     {
         private CartModel cart;

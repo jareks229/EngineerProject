@@ -9,6 +9,7 @@ using ProjektInzynier.Models;
 
 namespace ProjektInzynier.Controllers
 {
+    //kontroler do ról w aplikacji
     [Authorize]
     public class RoleController : Controller
     {

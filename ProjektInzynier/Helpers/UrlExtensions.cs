@@ -13,4 +13,6 @@ namespace ProjektInzynier.Helpers
                 ? $"{request.Path}{request.QueryString}"
                 : request.Path.ToString();
     }
+
+    /* Ta metoda działa wraz z klasą HttpRequest do opisania żądniania HTTP * cel tego był taki aby do dodania do koszyka był ładny URL :) To jest dopiero w powijakach, nie zaimplementowałem tego jeszcze do wszystkich akcji */
 }
