@@ -1,0 +1,9 @@
+Jak uruchomić projekt ?
+1. Zapisz repo na dysku
+2. Podmień zmienną "ConnectionString" w appsettings.xml na pasującą do twojego komputera.
+3. Uruchom projekt 
+4. Zarejestruj się i wejdź na kontroler "RoleController" i "Index" aby nadać sobie odpowiednie uprawnienia
+
+Jak działa program ?
+Program "Projekt Inżynier" to program wspomagający pracę inżyniera.
+Na podstawie wyborów użytkownika możemy wygenerować dokument w formacie xls z wnioskiem o akceptacje materialow budowlanych uzytych podczas prac.
